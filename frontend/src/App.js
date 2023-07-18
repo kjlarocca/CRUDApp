@@ -4,7 +4,7 @@ import './App.css';
 function App() {
   return ( 
   <div className="App">
-    <h1>Welcome, to KJ's Zoo</h1>
+    <h1>Welcome to KJ's Zoo</h1>
 
     <div className = 'form'>
       <label>Animal Type:</label>

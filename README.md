@@ -1,12 +1,13 @@
 # CRUDApp
 For CRUDApp Assessment
+?? necessary download: PostgreSQL ??
 
 frontend:\
-run\
+to run:\
  npm start
 
 backend:
-run\ 
+to run:\ 
  npm init -y\
  npm install express pg cors\
  npm install nodemon -D (dev dependency, optional)\
