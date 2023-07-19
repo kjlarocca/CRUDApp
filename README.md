@@ -1,6 +1,6 @@
 # CRUDApp
 For CRUDApp Assessment
-?? necessary download: PostgreSQL ??
+misc: installed React-Auth-Kit https://authkit.arkadip.dev/installation/
 
 frontend:\
 to run:\

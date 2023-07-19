@@ -36,6 +36,29 @@ function App() {
     }
   };
 
+  const handleDelete = async (id) => {
+    try {
+      await axios.delete(`http://localhost:3001/zooanimals/${id}`);
+      fetchZooAnimals();
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
+  const handleUpdate = async (id) => {
+    try {
+      await axios.patch(`http://localhost:3001/zooanimals/${id}`, {
+        animaltype: animalType,
+        animalname: animalName,
+      });
+      fetchZooAnimals();
+      setAnimalType('');
+      setAnimalName('');
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return (
     <div className="App">
       <h1>Welcome to KJ's Zoo</h1>
@@ -65,8 +88,10 @@ function App() {
           <ul>
             {zooAnimals.map((animal) => (
               <li key={animal._id}>
-                <strong>Animal Type:</strong> {animal.animaltype},{' '}
+                <strong>Animal Type:</strong> {animal.animaltype}{' '}
                 <strong>Animal Name:</strong> {animal.animalname}
+                <button onClick={() => handleDelete(animal._id)}>Remove</button>
+                <button onClick={() => handleUpdate(animal._id)}>Update</button>
               </li>
             ))}
           </ul>
