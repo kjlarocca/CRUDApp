@@ -11,6 +11,7 @@ to run:\
  npm init -y\
  npm install express pg cors\
  npm install nodemon -D (dev dependency, optional)\
+ install homebrew, mongoDB (& I downloaded mongo locally)
 start script:\
  node index.js
 

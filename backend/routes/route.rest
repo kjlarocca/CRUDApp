@@ -3,7 +3,7 @@ GET http://localhost:3001/zooanimals
 
 ###
 
-GET http://localhost:3001/zooanimals/15
+GET http://localhost:3001/zooanimals/64b80a7137182aec23418fca
 
 ###
 
@@ -11,6 +11,19 @@ POST http://localhost:3001/zooanimals
 Content-Type: application/json
 
 {
-    "animaltype": "tiger",
-    "animalname": "tony"
+    "animaltype": "frog",
+    "animalname": "frank"
+}
+
+###
+
+DELETE http://localhost:3001/zooanimals/64b8081d87e1d6d03a0e516b
+
+###
+PATCH http://localhost:3001/zooanimals/64b807aca0ed0bb69ac39876
+Content-Type: application/json
+
+{
+    "animalname": "Fiona"
+
 }

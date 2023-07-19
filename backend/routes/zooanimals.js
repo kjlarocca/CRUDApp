@@ -13,7 +13,7 @@ router.get('/', async (req, res) => {
 })
 
 router.get('/:id', getZooAnimal, (req, res) => {
-    res.send(res.zooanimal.name)
+    res.json(res.zooanimal)
 })
 
 router.post('/', async (req, res) => {
@@ -30,13 +30,30 @@ router.post('/', async (req, res) => {
     }
 })
 
-router.patch('/:id', (req, res) => {
-
+router.patch('/:id', getZooAnimal, async (req, res) => {
+    if (req.body.animalname != null) {
+        res.zooanimal.animalname = req.body.animalname
+    }
+    if (req.body.animaltype != null) {
+        res.zooanimal.animaltype = req.body.animaltype
+    }
+    try {
+        const updatedZooAnimal = await res.zooanimal.save()
+        res.json(updatedZooAnimal)
+    } catch (err) {
+        res.status(400).json({ message: err.message })
+    }
 })
 
-router.delete('/:id', (req, res) => {
-
+router.delete('/:id', getZooAnimal, async (req, res) => {
+    try {
+        await ZooAnimal.findByIdAndRemove(req.params.id)
+        res.json({ message: 'Animal removed successfully' })
+    } catch (err) {
+        res.status(500).json({ message: err.message })
+    }
 })
+
 
 async function getZooAnimal(req, res, next) {
     let zooanimal
@@ -47,7 +64,6 @@ async function getZooAnimal(req, res, next) {
         }
     } catch (err) {
         return res.status(500).json( { message: err.message })
-
     }
     res.zooanimal = zooanimal
     next()
