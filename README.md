@@ -1,6 +1,8 @@
 # CRUDApp
-For CRUDApp Assessment
-misc: installed React-Auth-Kit https://authkit.arkadip.dev/installation/
+For CRUDApp Assessment\
+misc: \
+authentication: \
+ installed React-Auth-Kit https://authkit.arkadip.dev/installation/
 
 frontend:\
 to run:\
@@ -8,7 +10,7 @@ npm install node, axios,
  npm start
 
 backend:
-to run:\ 
+to run: \ 
  npm init -y\
  npm install express pg\
  npm install nodemon -D (dev dependency, optional)\
