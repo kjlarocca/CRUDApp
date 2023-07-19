@@ -1,0 +1,16 @@
+
+GET http://localhost:3001/zooanimals 
+
+###
+
+GET http://localhost:3001/zooanimals/15
+
+###
+
+POST http://localhost:3001/zooanimals
+Content-Type: application/json
+
+{
+    "animaltype": "tiger",
+    "animalname": "tony"
+}
