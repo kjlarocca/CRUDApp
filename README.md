@@ -1,5 +1,5 @@
 # CRUDApp
-For CRUDApp Assessment\
+For CRUDApp Assessment
 
 frontend:\
 to run:\
@@ -8,7 +8,7 @@ npm install node, axios,
  npm start
 
 backend:
-to run: \ 
+to run:\ 
  npm init -y\
  npm install express\
  npm install nodemon -D (dev dependency, optional)\
