@@ -1,22 +1,23 @@
 # CRUDApp
 For CRUDApp Assessment\
-misc: \
-authentication: \
- installed React-Auth-Kit https://authkit.arkadip.dev/installation/
 
 frontend:\
 to run:\
+npm i react-scripts
 npm install node, axios,
  npm start
 
 backend:
 to run: \ 
  npm init -y\
- npm install express pg\
+ npm install express\
  npm install nodemon -D (dev dependency, optional)\
  i already had: homebrew and mongoDB (& I downloaded mongo locally), so you may need these
 
-start script:\
+start scripts:\
+ frontend:\
+ npm start\
+ backend:\
  node server.js
  or nodemon server.js
  

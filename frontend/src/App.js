@@ -76,22 +76,18 @@ function SignIn({ onSignIn, onSignUp }) {
             onChange={(e) => setPassword(e.target.value)}
           />
         </div>
+        <div className="buttons">
         <button type="button" onClick={handleSignIn}>
           Sign In
         </button>
         <button type="button" onClick={handleSignUp}>
           Sign Up
         </button>
+        </div>
       </form>
     </div>
   );
 }
-
-const ROLES = {
-  User: 2001,
-  Editor: 1984,
-  Admin: 5150,
-};
 
 function App() {
   const [isSignedIn, setIsSignedIn] = useState(false);
