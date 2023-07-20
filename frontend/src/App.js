@@ -8,15 +8,13 @@ function SignUp({ onSignIn }) {
 
   const handleSignUp = async () => {
     try {
-      await axios.post('http://localhost:3001/users/signup', {
+      await axios.post('http://localhost:3001/users/', {
         username,
         password,
       });
-      // Sign-up successful, automatically sign in
       onSignIn();
     } catch (error) {
       console.error(error);
-      // Handle sign-up error
     }
   };
 
@@ -60,7 +58,7 @@ function SignIn({ onSignIn, onSignUp }) {
     <div className="signin">
       <h1>Welcome, Zookeepers</h1>
       <form>
-        <div className="form-group">
+        <div className="signin-form">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -69,7 +67,7 @@ function SignIn({ onSignIn, onSignUp }) {
             onChange={(e) => setUsername(e.target.value)}
           />
         </div>
-        <div className="form-group">
+        <div className="signin-form">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
@@ -172,12 +170,11 @@ function App() {
     <div className="App">
       {isSignedIn ? (
         <>
-          <h1>Welcome to KJ's Zoo</h1>
-
+          <h1>Welcome to the Jungle</h1>
+          <h2>Current Zoo Animals</h2>
           <div className="zooAnimals">
-            <h2>Current Zoo Animals</h2>
             {zooAnimals.length > 0 ? (
-              <ul>
+              <div className="currentAnimals">
                 {zooAnimals.map((animal) => (
                   <ul key={animal._id}>
                     <strong>Animal Type:</strong> {animal.animaltype}{' '}
@@ -187,7 +184,7 @@ function App() {
                     <button onClick={() => handleUpdate(animal._id)}>Update</button>
                   </ul>
                 ))}
-              </ul>
+              </div>
             ) : (
               <p>No zoo animals found.</p>
             )}
@@ -195,6 +192,7 @@ function App() {
 
           <div className="newAnimalForm">
             <h2>New Animal Submission</h2>
+            <div className="newAnimal">
             <label>Animal Type:</label>
             <input
               type="text"
@@ -216,7 +214,7 @@ function App() {
               value={animalDetails}
               onChange={(e) => setAnimalDetails(e.target.value)}
             />
-
+            </div>
             <button onClick={handleSubmit}>Add Animal</button>
           </div>
         </>
