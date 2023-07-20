@@ -6,6 +6,7 @@ function App() {
   const [zooAnimals, setZooAnimals] = useState([]);
   const [animalType, setAnimalType] = useState('');
   const [animalName, setAnimalName] = useState('');
+  const [animalDetails, setAnimalDetails] = useState('');
 
   useEffect(() => {
     fetchZooAnimals();
@@ -27,10 +28,12 @@ function App() {
       const response = await axios.post('http://localhost:3001/zooanimals', {
         animaltype: animalType,
         animalname: animalName,
+        animaldetails: animalDetails,
       });
       setZooAnimals([...zooAnimals, response.data]);
       setAnimalType('');
       setAnimalName('');
+      setAnimalDetails('');
     } catch (error) {
       console.error(error);
     }
@@ -50,10 +53,12 @@ function App() {
       await axios.patch(`http://localhost:3001/zooanimals/${id}`, {
         animaltype: animalType,
         animalname: animalName,
+        animaldetails: animalDetails,
       });
       fetchZooAnimals();
       setAnimalType('');
       setAnimalName('');
+      setAnimalDetails('');
     } catch (error) {
       console.error(error);
     }
@@ -62,8 +67,28 @@ function App() {
   return (
     <div className="App">
       <h1>Welcome to KJ's Zoo</h1>
-
-      <div className="form">
+  
+      <div className="zooAnimals">
+        <h2>Current Zoo Animals</h2>
+        {zooAnimals.length > 0 ? (
+          <ul>
+            {zooAnimals.map((animal) => (
+              <ul key={animal._id}>
+                <strong>Animal Type:</strong> {animal.animaltype}{' '}
+                <strong>Animal Name:</strong> {animal.animalname}{' '}
+                <strong>Animal Details:</strong> {animal.details}{' '}
+                <button onClick={() => handleDelete(animal._id)}>Remove</button>
+                <button onClick={() => handleUpdate(animal._id)}>Update</button>
+              </ul>
+            ))}
+          </ul>
+        ) : (
+          <p>No zoo animals found.</p>
+        )}
+      </div>
+      
+      <div className="newAnimalForm">
+        <h2>New Animal Submission</h2>
         <label>Animal Type:</label>
         <input
           type="text"
@@ -78,29 +103,19 @@ function App() {
           value={animalName}
           onChange={(e) => setAnimalName(e.target.value)}
         />
-
-        <button onClick={handleSubmit}>Submit</button>
-      </div>
-
-      <div className="zooAnimals">
-        <h2>Zoo Animals</h2>
-        {zooAnimals.length > 0 ? (
-          <ul>
-            {zooAnimals.map((animal) => (
-              <li key={animal._id}>
-                <strong>Animal Type:</strong> {animal.animaltype}{' '}
-                <strong>Animal Name:</strong> {animal.animalname}
-                <button onClick={() => handleDelete(animal._id)}>Remove</button>
-                <button onClick={() => handleUpdate(animal._id)}>Update</button>
-              </li>
-            ))}
-          </ul>
-        ) : (
-          <p>No zoo animals found.</p>
-        )}
+        <label>Animal Details:</label>
+        <input
+          type="text"
+          name="animalDetails"
+          value={animalDetails}
+          onChange={(e) => setAnimalDetails(e.target.value)}
+        />
+  
+        <button onClick={handleSubmit}>Add Animal</button>
       </div>
     </div>
   );
-}
-
-export default App;
+  }
+  
+  export default App;
+  

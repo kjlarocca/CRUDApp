@@ -8,6 +8,10 @@ const zooanimalSchema = new mongoose.Schema({
     animalname: {
         type: String,
         required: true
+    },
+    animaldetails: {
+        type: String,
+        required: true
     }
 })
 

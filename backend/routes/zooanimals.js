@@ -19,7 +19,8 @@ router.get('/:id', getZooAnimal, (req, res) => {
 router.post('/', async (req, res) => {
     const zooanimal = new ZooAnimal({
         animaltype: req.body.animaltype,
-        animalname: req.body.animalname
+        animalname: req.body.animalname,
+        animaldetails: req.body.animaldetails
     })
 
     try {
