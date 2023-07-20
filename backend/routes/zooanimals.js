@@ -55,7 +55,6 @@ router.delete('/:id', getZooAnimal, async (req, res) => {
     }
 })
 
-
 async function getZooAnimal(req, res, next) {
     let zooanimal
     try {
