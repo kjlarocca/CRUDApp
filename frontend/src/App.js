@@ -77,12 +77,12 @@ function SignIn({ onSignIn, onSignUp }) {
           />
         </div>
         <div className="buttons">
-        <button type="button" onClick={handleSignIn}>
-          Sign In
-        </button>
-        <button type="button" onClick={handleSignUp}>
-          Sign Up
-        </button>
+          <button type="button" onClick={handleSignIn}>
+            Sign In
+          </button>
+          <button type="button" onClick={handleSignUp}>
+            Sign Up
+          </button>
         </div>
       </form>
     </div>
@@ -170,14 +170,16 @@ function App() {
           <h2>Current Zoo Animals</h2>
           <div className="zooAnimals">
             {zooAnimals.length > 0 ? (
-              <div className="currentAnimals">
+            <div className="currentAnimals">
                 {zooAnimals.map((animal) => (
                   <ul key={animal._id}>
                     <strong>Animal Type:</strong> {animal.animaltype}{' '}
                     <strong>Animal Name:</strong> {animal.animalname}{' '}
                     <strong>Animal Details:</strong> {animal.animaldetails}{' '}
+                    <div className="innerButtons">
                     <button onClick={() => handleDelete(animal._id)}>Remove</button>
                     <button onClick={() => handleUpdate(animal._id)}>Update</button>
+                    </div>
                   </ul>
                 ))}
               </div>
@@ -211,9 +213,11 @@ function App() {
               onChange={(e) => setAnimalDetails(e.target.value)}
             />
             </div>
+            <div className="button">
             <button onClick={handleSubmit}>Add Animal</button>
+            </div>
           </div>
-        </>
+          </>
       ) : (
         <SignIn onSignIn={handleSignIn} onSignUp={handleSignUp} />
       )}
