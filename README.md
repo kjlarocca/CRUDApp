@@ -12,15 +12,15 @@ Allow for Zookeeper to generate a list of animals that they specifically have ad
 To begin: 
 In your terminal - git clone: git@github.com:kjlarocca/CRUDApp.git
 
-Backend:
-to run\ 
+Backend:\
+To run:\ 
 cd into backend\
  npm install express\
  npm install nodemon -D (dev dependency, optional)\
  i already had: homebrew and mongoDB (& I downloaded mongo locally), so you may need these\
  node server.js\
  or nodemon server.js\
-(You should see Server is running on port 3001 and Connected to Database)\
+(You should see Server is running on port 3001 and Connected to Database)
 
 Frontend:\
 To run:\
@@ -28,7 +28,7 @@ cd into frontend\
 npm i react-scripts\
 npm i react-router-dom\
 npm install node, axios\
- npm start\
+ npm start
 
 to view:\
-React frontend: in google chrome browser nav to http://localhost:3000/ \
+React frontend: in google chrome browser nav to http://localhost:3000/
