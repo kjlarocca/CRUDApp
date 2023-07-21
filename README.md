@@ -9,26 +9,25 @@ Stretch Goals:
 Add photos to each animals card
 Allow for Zookeeper to generate a list of animals that they specifically have added
 
-frontend:\
-to run:\
-npm i react-scripts
-npm install node, axios,
- npm start
+To begin: 
+In your terminal - git clone: git@github.com:kjlarocca/CRUDApp.git
 
-backend:
+Backend:
 to run:\ 
- npm init -y\
+cd into backend\
  npm install express\
  npm install nodemon -D (dev dependency, optional)\
- i already had: homebrew and mongoDB (& I downloaded mongo locally), so you may need these
+ i already had: homebrew and mongoDB (& I downloaded mongo locally), so you may need these\
+ node server.js\
+ or nodemon server.js\
+(You should see Server is running on port 3001 and Connected to Database)\
 
-start scripts:\
- frontend:\
+Frontend:\
+To run:\
+cd into frontend\
+npm i react-scripts\
+npm install node, axios\
  npm start\
- backend:\
- node server.js
- or nodemon server.js
- 
+
 to view:\
 React frontend: in google chrome browser nav to http://localhost:3000/ \
-Express backend: in google chrome broser nav to http://localhost:3001/
