@@ -26,6 +26,7 @@ Frontend:\
 To run:\
 cd into frontend\
 npm i react-scripts\
+npm i react-router-dom\
 npm install node, axios\
  npm start\
 
