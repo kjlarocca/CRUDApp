@@ -13,7 +13,7 @@ To begin:
 In your terminal - git clone: git@github.com:kjlarocca/CRUDApp.git
 
 Backend:
-to run:\ 
+to run\ 
 cd into backend\
  npm install express\
  npm install nodemon -D (dev dependency, optional)\
